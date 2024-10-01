@@ -1,0 +1,17 @@
+extends layout 
+
+include mixins/_head
+
+block head 
+  meta(name="description" content="Actual Homepage - SEO text here")
+  title Actual Homepage | Kezdőlap
+  +head 
+block content
+  main
+    .hero
+      .hero-wrapper
+        .hero-image
+        .hero-content
+          h1.title Tálos István
+          p I create classical-style paintings on canvas. Check out my
+          a.btn(href="/forsale") paintings for sale

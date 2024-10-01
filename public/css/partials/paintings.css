@@ -1,0 +1,9 @@
+/*width: 75,3125%* || 12.34% padding left&right*/ 
+
+/* min mobile 320px, max mobile 767px 
+767px * 0,753125 = 577,646px --> resize img to 600px width
+*/
+
+/* max desktop width is 1440px, max img width is 500px
+resize img to 1000px width for high resolution
+*/
