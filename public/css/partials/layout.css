@@ -37,22 +37,27 @@
     flex-grow:       1;
     width:           100%;
     margin-top:      var(--header-height);
-    gap:             4rem;
+    gap:             5rem;
     max-width:       1440px;
   }
 
-  
+  section {
+    display:         flex;
+    flex-flow:       column nowrap;
+    justify-content: flex-start;
+    align-items:     center;
+    gap:             2rem;
+    width:           100%;
+    /*padding:         0 1rem;*/
+  }
 
-
-/*@media (min-width: 956px) {
+@media(min-width: 768px) {
   main {
-    gap: 5rem;
+    gap: 9.5rem;
   }
-  .homepage {
-    gap: 10rem;
-  }
-}*/
- 
+}
+
   
+
 
  

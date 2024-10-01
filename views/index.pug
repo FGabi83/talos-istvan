@@ -7,6 +7,9 @@ block head
   title Actual Homepage | Kezdőlap
   +head 
 block content
+  - const paintings = require('../data/paintings.json')
+  - const forsale = paintings.filter(painting => painting.status === 'forsale').sort((a, b) => a.order - b.order)
+  - const sold = paintings.filter(painting => painting.status === 'sold').sort((a, b) => a.order - b.order)
   main
     .hero
       .hero-wrapper
@@ -15,3 +18,33 @@ block content
           h1.title Tálos István
           p I create classical-style paintings on canvas. Check out my
           a.btn(href="/forsale") paintings for sale
+    section.paintings 
+      h2.title Pictures for sale 
+      .paintings-wrapper
+        each painting in forsale
+          figure
+            picture 
+              source(media="(min-width: 768px)", srcset=`/images/photos/${painting.desktop}`)
+              img.single-painting(src=`/images/photos/${painting.mobile}`, alt=painting.alt)
+            figcaption #{painting.title}
+    section.paintings 
+      h2.title Sold pictures  
+      .paintings-wrapper
+        each painting in sold
+          figure
+            picture 
+              source(media="(min-width: 768px)", srcset=`/images/photos/${painting.desktop}`)
+              img.single-painting(src=`/images/photos/${painting.mobile}`, alt=painting.alt)
+            figcaption #{painting.title}
+    section.about 
+      h2.title About me
+      .about-wrapper
+        picture 
+          source(media="(min-width: 768px)", srcset="/images/photos/profil_desktop.jpg")
+          img.profile-img(src="/images/photos/profil_mobil.jpg", alt="Tálos István")
+        .about-text
+          p I was born in 1987 in Siófok, Hungary.
+          p I studied graphic art and painting for seven years at various institutions, but the experience was so disheartening that I stopped painting for ten years.
+          p In 2023, I moved to the Netherlands and began painting again.
+          p Unlike my earlier work, I now focus exclusively on classical-style paintings on canvas. My favorite subjects are old brick buildings or vibrant landscapes.
+          p I can create a painting from a photo of a building if you like, but I don't do portraits.
