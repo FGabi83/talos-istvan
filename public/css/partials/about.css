@@ -1,0 +1,17 @@
+.about-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.profile-img, .about-text {
+  width: 75.3125vw;
+}
+
+.about-text > p:not(:last-child) {
+  margin-bottom: var(--line-height-regular);
+  
+}
