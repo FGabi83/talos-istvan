@@ -7,6 +7,10 @@
   width:           100%;
 }
 
+.about > h2 {
+  margin-top: 2rem;
+}
+
 .profile-img, .about-text {
   width:     75.3125vw;
   max-width: 500px;

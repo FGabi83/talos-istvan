@@ -66,6 +66,7 @@ const config = {
   devtool: "source-map",
   entry: {
     App: "./public/javascripts/homepage-app.js",
+    NewPage: "./public/javascripts/new-page.js",
   },
   output: {
     path: path.resolve(__dirname, "public", "dist"),
@@ -94,14 +95,14 @@ const config = {
       filename: "index.html", 
       inject: false,
     }),
-    /*new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: "./views/privacyPolicy.pug",
-      filename: "adatvedelem.html",
+      filename: "privacy.html",
       inject: false, 
     }),
-    new HtmlWebpackPlugin({
-      template: "./views/impressium.pug",
-      filename: "impresszium.html", 
+    /*new HtmlWebpackPlugin({
+      template: "./views/impressum.pug",
+      filename: "impressum.html", 
       inject: false,
     }),*/
   ],

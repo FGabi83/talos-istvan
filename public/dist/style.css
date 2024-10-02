@@ -369,7 +369,7 @@
     --line-height-small:    calc(var(--font-size-small) * 1.5);
     --header-height:        clamp(3.125rem, 6vw + 1rem, 5rem);
     --hero-height:          calc(100vh - var(--header-height));  
-    --footer-height:        7.5rem; 
+    --footer-height:        6.375rem; 
 } 
 
 /* normalize CSS */
@@ -384,6 +384,10 @@
   html, body {
     width:      100%;
     overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
 
@@ -426,7 +430,6 @@ html {
       font-size:      var(--font-size-title);
       line-height:    var(--line-height-title);
       margin:         0;
-      margin-bottom:  .5rem;
       color:          var(--title-color);
     }
 
@@ -499,8 +502,9 @@ html {
     flex-grow:       1;
     width:           100%;
     margin-top:      var(--header-height);
-    gap:             5rem;
+    gap:             3rem;
     max-width:       1440px;
+    margin-bottom:   4.25rem;
   }
 
   section {
@@ -508,21 +512,20 @@ html {
     flex-flow:       column nowrap;
     justify-content: flex-start;
     align-items:     center;
-    gap:             2rem;
+    gap:             1rem;
     width:           100%;
-    /*padding:         0 1rem;*/
+   
+    
   }
 
 @media(min-width: 768px) {
   main {
-    gap: 9.5rem;
+    gap: 7.5rem;
   }
   section {
-    gap: 4rem;
+    gap: 3rem;
   }
-  .paintings-wrapper {
-    gap: 4rem;
-  }
+  
 }
 
   
@@ -544,7 +547,7 @@ html {
 header {
   width:            100vw;
   height:           var(--header-height);
-  border-bottom:    1px solid var(--font-color);
+  border-bottom:    1px solid var(--title-color);
   background-color: white;
   display:          flex;
   flex-flow:        row nowrap;
@@ -633,6 +636,10 @@ header {
       stroke: var(--font-color);
       stroke-width: 1;
       stroke-linecap: round;
+    }
+    
+    #home, #forsale, #sold, #about, #contact {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
     }
     
     /*Active link is highlighted*/
@@ -830,6 +837,7 @@ resize img to 1000px width for high resolution
 */
 .paintings > h2 {
     text-align: center;
+    margin-top: 2rem;
 }
 
 .paintings-wrapper {
@@ -873,6 +881,10 @@ figcaption {
   width:           100%;
 }
 
+.about > h2 {
+  margin-top: 2rem;
+}
+
 .profile-img, .about-text {
   width:     75.3125vw;
   max-width: 500px;
@@ -902,74 +914,78 @@ figcaption {
   }
 }
 /*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./public/css/partials/contact.css ***!
+  \***************************************************************************************************************/
+.contact {
+  width: min(445px, 75.3125vw);
+}
+
+.email {
+  white-space: nowrap;
+  color: var(--highlight-color);
+}
+
+.email:hover {
+  color: var(--title-color);
+  font-weight: 400;
+}
+
+@media(min-width: 768px) {
+  .contact {
+    gap: 3.33rem;
+  }
+}
+/*!***************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./public/css/partials/privacy.css ***!
   \***************************************************************************************************************/
-
-.privacy--wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: min(600px, 100%);
-  gap: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: var(--padding-left-right);
-  padding-right: var(--padding-left-right);
+.privacy {
+  max-width: 800px;
+  padding: 2rem;
+  gap: 2rem;
 }
 
-.privacy--wrapper h2 {
+.privacy > h1 {
+  font-family:    'Josefin Sans', sans-serif;
+  color: var(--font-color);
+  
+}
+
+.privacy > h2 {
   font-size: var(--font-size-regular);
   line-height: var(--line-height-regular);
-}
-
-.last-p {
-  margin-bottom: 2rem;;
+  align-self: flex-start;
+  margin-top: 1rem;
 }
 
 /*  LISTS  */
 
-.privacy--wrapper li {
+.privacy li {
   list-style-position: inside;
   display:             flex;
   align-items:         flex-start;
   
 }
 
-.privacy--wrapper ul {
+.privacy ul {
   padding-left: 0;
 }
 
 
 
-.privacy--wrapper ul li:before {
+.privacy ul li:before {
   content:      "•"; 
   margin-right: 0.5rem; /* A bullet point távolsága a szövegtől */
   font-size:    1.5rem;
 }
 
-
-
-
-/* LINKS */
-
-.privacy--link {
-  color: var(--brand-color);
-}
-
-.privacy--link:hover {
-  text-decoration: underline;
-}
-
-@media (min-width: 600px) {
-  .privacy--wrapper {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+@media(min-width: 768px) {
+  .privacy {
+    padding: 4rem;
   }
-  .privacy--wrapper h1 {
-    margin-bottom: 1rem;
+  .privacy > h2 {
+    margin-top: 2rem;
   }
-} 
+}
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./public/css/partials/impressium.css ***!
   \******************************************************************************************************************/
@@ -1008,39 +1024,57 @@ footer {
     gap:              calc(var(--line-height-small) / 3);
     padding-bottom:   calc(var(--line-height-small) / 2);
     background:       var(--background-color);
-    border-top:       2px solid var(--secondary-color);
+    border-top:       1px solid var(--title-color);
     opacity:          1;
-    padding-left:     var(--padding-left-right);
+    padding-left:     12;
     padding-right:    var(--padding-left-right);
     text-align:       center;
     
   }
 
+  .footer-devider {
+    display: none;
+  }
+
   .links--wrapper {
     display:         flex;
-    flex-flow:       row nowrap;
+    flex-flow:       column nowrap;
     justify-content: center;
     align-items:     center;
-    gap:             .3125rem;
-    
+    padding-left: 1rem;
+    padding-right: 1rem;
   
   }
   
     .footer--text {
-      width:           69.375rem;
       text-align:      center;
-      letter-spacing:  0.15rem;
-      text-transform:  uppercase;
-      font-size:       .75rem;
-      line-height:     var(--line-height-small);
+      font-size:       .875rem;
+      line-height:     calc(0.875rem * 1.5);  
     }
 
     .footer--text__link {
-      color:           var(--primary-color);
+      font-size:      .875rem;
+      line-height:     calc(0.875rem * 1.5);  
+      color:           var(--highlight-color);
     }
 
     .footer--text__link:hover {
       text-decoration: underline;
+    }
+
+    @media(min-width: 340px) {
+      .links--wrapper {
+        flex-flow: row nowrap;
+        gap:       1rem;
+      }
+      .footer-devider {
+        display: inline-block;
+      }
+
+      .footer--text, .footer--text__link {
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-small);  
+      }
     }
   
 
@@ -1103,7 +1137,7 @@ footer {
 /*;
 @import 'partials/highlighted-text.css';
 
-@import 'partials/contacts.css';
+
 @import 'partials/drinks.css';
 
 @import 'partials/accordion.css';*/

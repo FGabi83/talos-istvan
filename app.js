@@ -14,10 +14,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dist', 'index.html'));
 });
 
-/*app.get('/adatvedelem.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dist',  'adatvedelem.html'));
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dist',  'privacy.html'));
 });
 
+// Catch-all route to serve index.html for any other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dist', 'index.html'));
+});
+
+/*
 app.get('/impresszium.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dist', 'impresszium.html'));
 });*/

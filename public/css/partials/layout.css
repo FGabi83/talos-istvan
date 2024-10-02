@@ -37,8 +37,9 @@
     flex-grow:       1;
     width:           100%;
     margin-top:      var(--header-height);
-    gap:             5rem;
+    gap:             3rem;
     max-width:       1440px;
+    margin-bottom:   4.25rem;
   }
 
   section {
@@ -46,17 +47,18 @@
     flex-flow:       column nowrap;
     justify-content: flex-start;
     align-items:     center;
-    gap:             2rem;
+    gap:             1rem;
     width:           100%;
-    /*padding:         0 1rem;*/
+   
+    
   }
 
 @media(min-width: 768px) {
   main {
-    gap: 9.5rem;
+    gap: 7.5rem;
   }
   section {
-    gap: 4rem;
+    gap: 3rem;
   }
   
 }
