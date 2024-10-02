@@ -517,6 +517,12 @@ html {
   main {
     gap: 9.5rem;
   }
+  section {
+    gap: 4rem;
+  }
+  .paintings-wrapper {
+    gap: 4rem;
+  }
 }
 
   
@@ -849,25 +855,51 @@ figcaption {
   text-align:     center;
   margin-top:     0.8rem;
 }
+
+@media(min-width: 768px) {
+  .paintings-wrapper {
+    gap: 4rem;
+  }
+}
 /*!*************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./public/css/partials/about.css ***!
   \*************************************************************************************************************/
 .about-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
+  display:         flex;
+  flex-flow:       column nowrap;
   justify-content: flex-start;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
+  align-items:     center;
+  gap:             2rem;
+  width:           100%;
 }
 
 .profile-img, .about-text {
-  width: 75.3125vw;
+  width:     75.3125vw;
+  max-width: 500px;
 }
 
 .about-text > p:not(:last-child) {
   margin-bottom: var(--line-height-regular);
   
+}
+
+@media(min-width: 963px) {
+  .about-wrapper {
+    flex-flow:       row-reverse nowrap;
+    justify-content: center;
+    align-items:     center;
+    gap:             2rem;
+    max-width:       858px;
+  }
+
+  .profile-img {
+    max-height: 98%;
+    width:      min(367px, 40vw);
+  }
+
+  .about-text {
+    width: min(459px, 50%);
+  }
 }
 /*!***************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./public/css/partials/privacy.css ***!

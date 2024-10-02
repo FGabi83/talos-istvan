@@ -34,3 +34,9 @@ figcaption {
   text-align:     center;
   margin-top:     0.8rem;
 }
+
+@media(min-width: 768px) {
+  .paintings-wrapper {
+    gap: 4rem;
+  }
+}

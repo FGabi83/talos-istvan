@@ -55,6 +55,10 @@
   main {
     gap: 9.5rem;
   }
+  section {
+    gap: 4rem;
+  }
+  
 }
 
   
