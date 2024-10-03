@@ -1,25 +1,30 @@
 function activeNavItem() {
+  // Lekérjük az összes navigációs elemet
   let links = document.querySelectorAll('.js-nav--item');
-  let path = window.location.pathname;
-  let pathArray = path.split('/');
-  let currentPath = pathArray[pathArray.length - 1];
-  links.forEach(link => {
-    let linkPath = link.getAttribute('href');
-    let linkArray = linkPath.split('/');
-    let linkCurrentPath = linkArray[linkArray.length - 1];
-    let linkWithoutHtml = linkCurrentPath.split('.')[0];
-    if (linkCurrentPath === currentPath || linkWithoutHtml === currentPath) {
-       console.log('ok', 'linkCurrentPath:', linkCurrentPath, 'currentPath:', currentPath, 'linkWithoutHtml:', linkWithoutHtml);
-       link.classList.add('js-nav--item__active');
-       } else {
-        console.log('not ok', 'linkCurrentPath:', linkCurrentPath, 'currentPath:', currentPath, 'linkWithoutHtml:', linkWithoutHtml);
-       link.classList.remove('js-nav--item__active');
-    }
-    
-  });
-
   
+  // Lekérjük az aktuális hash-t (pl. #about vagy #contact)
+  let currentHash = window.location.hash || '#home';  // Alapértelmezett a #home, ha nincs hash
+  
+  // Végigmegyünk a linkeken, és ellenőrizzük, hogy a hash egyezik-e
+  links.forEach(link => {
+    let linkHash = link.getAttribute('href');  // A hivatkozás (pl. #about, #contact)
+    
+    if (linkHash === currentHash) {
+      console.log('ok', 'linkHash:', linkHash, 'currentHash:', currentHash);
+      link.classList.add('js-nav--item__active');  // Aktív osztály hozzáadása
+    } else {
+      console.log('not ok', 'linkHash:', linkHash, 'currentHash:', currentHash);
+      link.classList.remove('js-nav--item__active');  // Aktív osztály eltávolítása
+    }
+  });
 }
+
+// Meghívjuk az activeNavItem függvényt minden hash változáskor
+window.addEventListener('hashchange', activeNavItem);
+
+// Meghívjuk egyszer, amikor az oldal betöltődik
+document.addEventListener('DOMContentLoaded', activeNavItem);
+
 
 export default activeNavItem;
 

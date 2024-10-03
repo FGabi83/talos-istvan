@@ -2,6 +2,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./public/javascripts/modules/activeNavItem.js":
+/*!*****************************************************!*\
+  !*** ./public/javascripts/modules/activeNavItem.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+function activeNavItem() {
+  // Lekérjük az összes navigációs elemet
+  var links = document.querySelectorAll('.js-nav--item');
+
+  // Lekérjük az aktuális hash-t (pl. #about vagy #contact)
+  var currentHash = window.location.hash || '#home'; // Alapértelmezett a #home, ha nincs hash
+
+  // Végigmegyünk a linkeken, és ellenőrizzük, hogy a hash egyezik-e
+  links.forEach(function (link) {
+    var linkHash = link.getAttribute('href'); // A hivatkozás (pl. #about, #contact)
+
+    if (linkHash === currentHash) {
+      console.log('ok', 'linkHash:', linkHash, 'currentHash:', currentHash);
+      link.classList.add('js-nav--item__active'); // Aktív osztály hozzáadása
+    } else {
+      console.log('not ok', 'linkHash:', linkHash, 'currentHash:', currentHash);
+      link.classList.remove('js-nav--item__active'); // Aktív osztály eltávolítása
+    }
+  });
+}
+
+// Meghívjuk az activeNavItem függvényt minden hash változáskor
+window.addEventListener('hashchange', activeNavItem);
+
+// Meghívjuk egyszer, amikor az oldal betöltődik
+document.addEventListener('DOMContentLoaded', activeNavItem);
+/* harmony default export */ __webpack_exports__["default"] = (activeNavItem);
+
+/***/ }),
+
 /***/ "./public/javascripts/modules/dropdownMenu.js":
 /*!****************************************************!*\
   !*** ./public/javascripts/modules/dropdownMenu.js ***!
@@ -25,105 +62,6 @@ function dropdownMenu() {
   });
 }
 /* harmony default export */ __webpack_exports__["default"] = (dropdownMenu);
-
-/***/ }),
-
-/***/ "./public/javascripts/modules/scrollTo.js":
-/*!************************************************!*\
-  !*** ./public/javascripts/modules/scrollTo.js ***!
-  \************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// scrollTo.js
-/*
-const ScrollToSection = () => {
-  // Keresd meg az összes navigációs linket
-  document.querySelectorAll('.js-nav--item').forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault(); // Megakadályozza az alapértelmezett link viselkedést
-
-      const targetId = this.getAttribute('href'); // A link href attribútuma
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        // Számoljuk ki az elem pozícióját
-        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-
-        // Smooth scroll az elemhez
-        window.scrollTo({
-          top: elementPosition,
-          behavior: 'smooth'
-        });
-
-        // History API használata az URL frissítéséhez
-        const sectionName = targetId.replace('#', ''); 
-        window.history.pushState(null, '', sectionName); // Frissíti az URL-t
-      }
-    });
-  });
-};*/
-
-var ScrollToSection = function ScrollToSection() {
-  // Keresd meg az összes navigációs linket
-  document.querySelectorAll('.js-nav--item').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-      event.preventDefault(); // Megakadályozza az alapértelmezett link viselkedést
-
-      var targetId = this.getAttribute('href'); // A link href attribútuma
-      var targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        // Számoljuk ki az elem pozícióját
-        // Használj offsetTop-ot a teljes dokumentumra vonatkozóan
-        var elementPosition = targetElement.offsetTop;
-
-        // A fejléc magasságát, pl. 80px, levonhatod, ha van fix fejléc
-        var headerHeight = 80; // Módosítsd a saját fejléced magasságának megfelelően
-
-        // Smooth scroll az elemhez
-        window.scrollTo({
-          top: elementPosition - headerHeight,
-          // Levonjuk a fejléc magasságát
-          behavior: 'smooth'
-        });
-
-        // History API használata az URL frissítéséhez
-        var sectionName = targetId.replace('#', '');
-        window.history.pushState(null, '', sectionName); // Frissíti az URL-t
-      }
-    });
-  });
-};
-
-/*const ScrollToSection = () => {
-  document.querySelectorAll('.js-nav--item').forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault(); // Megakadályozza az alapértelmezett link viselkedését
-
-      const targetId = this.getAttribute('href'); // A link href attribútuma
-      const targetElement = document.querySelector(targetId); // Keresd meg a cél elemet
-
-      if (targetElement) {
-        // Számoljuk ki az elem pozícióját
-        const elementPosition = targetElement.offsetTop;
-        const headerHeight = 80; // Módosítsd a saját fejléced magasságának megfelelően
-
-        // Smooth scroll az elemhez
-        window.scrollTo({
-          top: elementPosition - headerHeight,
-          behavior: 'smooth'
-        });
-
-        // History API használata az URL frissítéséhez
-        const sectionName = targetId.replace('#', ''); 
-        window.history.pushState(null, '', `${window.location.origin}/${sectionName}`); // Frissíti az URL-t
-      }
-    });
-  });
-};
-*/
-
-/* harmony default export */ __webpack_exports__["default"] = (ScrollToSection);
 
 /***/ }),
 
@@ -186,14 +124,14 @@ var __webpack_exports__ = {};
   \********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ "./public/css/style.css");
-/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./public/javascripts/modules/dropdownMenu.js");
-/* harmony import */ var _modules_scrollTo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scrollTo */ "./public/javascripts/modules/scrollTo.js");
+/* harmony import */ var _modules_activeNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/activeNavItem */ "./public/javascripts/modules/activeNavItem.js");
+/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./public/javascripts/modules/dropdownMenu.js");
  // without this import webpack doesn't generate the css file
 
 
 
-(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
-(0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_activeNavItem__WEBPACK_IMPORTED_MODULE_1__["default"])();
+(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }();
 /******/ })()
 ;

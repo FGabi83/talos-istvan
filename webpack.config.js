@@ -66,7 +66,6 @@ const config = {
   devtool: "source-map",
   entry: {
     App: "./public/javascripts/homepage-app.js",
-    NewPage: "./public/javascripts/new-page.js",
   },
   output: {
     path: path.resolve(__dirname, "public", "dist"),

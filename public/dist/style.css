@@ -502,7 +502,7 @@ html {
     flex-grow:       1;
     width:           100%;
     margin-top:      var(--header-height);
-    gap:             3rem;
+    gap:             5rem;
     max-width:       1440px;
     margin-bottom:   4.25rem;
   }
@@ -512,7 +512,7 @@ html {
     flex-flow:       column nowrap;
     justify-content: flex-start;
     align-items:     center;
-    gap:             1rem;
+    gap:             2rem;
     width:           100%;
    
     
@@ -520,10 +520,10 @@ html {
 
 @media(min-width: 768px) {
   main {
-    gap: 7.5rem;
+    gap: 9.5rem;
   }
   section {
-    gap: 3rem;
+    gap: 4rem;
   }
   
 }
@@ -786,13 +786,12 @@ header {
   .hero-image {
     height:     100%;
     max-height: unset;
-    width:      min(50%, 509px);
+    width:      min(50%, 406px);
   }
 
   .hero-content {
     width:      min(40%, 351px);
     text-align: left;
-   
   }
 }
 /*!***************************************************************************************************************!*\
@@ -837,8 +836,7 @@ resize img to 1000px width for high resolution
 */
 .paintings > h2 {
     text-align: center;
-    margin-top: 2rem;
-}
+  }
 
 .paintings-wrapper {
   display:         flex;
@@ -881,9 +879,7 @@ figcaption {
   width:           100%;
 }
 
-.about > h2 {
-  margin-top: 2rem;
-}
+
 
 .profile-img, .about-text {
   width:     75.3125vw;

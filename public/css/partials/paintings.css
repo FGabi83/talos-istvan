@@ -9,8 +9,7 @@ resize img to 1000px width for high resolution
 */
 .paintings > h2 {
     text-align: center;
-    margin-top: 2rem;
-}
+  }
 
 .paintings-wrapper {
   display:         flex;
