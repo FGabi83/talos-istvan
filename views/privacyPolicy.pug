@@ -1,12 +1,14 @@
 extends loadPage-layout 
 include mixins/_head
+include mixins/_head-end
 
 block head 
   meta(name="description" content="Tálos István - Privacy Policy")
   title Tálos István | Privacy Policy
-  +head 
+  +head
+  +headEnd 
 block content
-  main.privacy 
+  main.must 
     h1.title Privacy Policy
     p This Privacy Policy outlines how your personal data is collected, used, and protected when you visit the website of István Tálos. We respect your privacy and are committed to safeguarding your personal information.
 

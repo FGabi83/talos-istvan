@@ -99,11 +99,11 @@ const config = {
       filename: "privacy.html",
       inject: false, 
     }),
-    /*new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: "./views/impressum.pug",
       filename: "impressum.html", 
       inject: false,
-    }),*/
+    }),
   ],
 };
 

@@ -1,0 +1,33 @@
+extends loadPage-layout 
+include mixins/_head
+include mixins/_head-end
+
+block head 
+  meta(name="description" content="Tálos István - Impressum")
+  title Tálos István | Impressum
+  +head
+  +headEnd 
+block content
+  main.must
+    h1.title Impressum
+    .impressum--wrapper
+      .impressum--subwrapper
+        h2 Website Owner Information
+        p
+          span.text__bold Name:</span> Tálos István
+        p
+          span.text__bold Address</span> Herman Otto street 15., 8622 Szántód, Hungary
+        p
+          span.text__bold E-mail:</span> talos.istvan87@gmail.com
+      .impressum--subwrapper      
+        h2 Hosting Provider Information    
+        p
+          span.text__bold Provider name:</span> Rackhost Zrt.      
+        p
+          span.text__bold Headquarters:</span> Tisza Lajos körút 41., 6722 Szeged, Hungary      
+        p
+          span.text__bold Tax ID:</span> 25333572-2-06
+        p
+          span.text__bold Company Registration Number:</span> 06-10-000489
+        p
+          span.text__bold E-mail:</span> info@rackhost.hu

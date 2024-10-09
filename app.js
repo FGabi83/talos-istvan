@@ -18,16 +18,15 @@ app.get('/privacy', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dist',  'privacy.html'));
 });
 
+
+app.get('/impressum', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dist', 'impressum.html'));
+});
+
 // Catch-all route to serve index.html for any other requests
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dist', 'index.html'));
 });
-
-/*
-app.get('/impresszium.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dist', 'impresszium.html'));
-});*/
-
 
 // Export app for start.js
 module.exports = app;
