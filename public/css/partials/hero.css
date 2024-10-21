@@ -45,14 +45,6 @@
 
 /* DESKTOP VIEW */
 
-@media(min-width: 768px) {
-  .hero-image {
-    background: url('/images/photos/hero_desktop.jpg') no-repeat center center;
-    background: url('/images/photos/hero_desktop.webp') no-repeat center center;
-    background-size: contain;
-  }
-}
-
 @media(min-width: 1075px) {
   .hero-wrapper {
     flex-flow:       row-reverse nowrap;
